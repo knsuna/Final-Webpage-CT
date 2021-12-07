@@ -293,7 +293,7 @@ function greaterthanavg(POST, response) {
     // Now build the response: table of results and form to do another query
     response_form = `<form action="window.history.back()" method="GET">`;
     response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
-    response_form += `<td><B>Customer ID</td><td><B>First Name</td><B>Last Name</td></b><td><B>Last Name</td></b>`;
+    response_form += `<td><B>Customer ID</td><td><B>First Name</td><td><B>Last Name</td></b>`;
     for (i in res_json) {
       response_form += `<tr><td> ${res_json[i].Cust_id}</td>`;
       response_form += `<td> ${res_json[i].Fname}</td>`;
