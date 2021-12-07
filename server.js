@@ -93,6 +93,7 @@ function mgrnumofemployee(POST, response) {
     response_form = `<form action="index.html" method="GET">`;
     response_form += `<table border="3" cellpadding="5" cellspacing="5">`;
     response_form += `<td><B>Employee ID</td>
+    <td><B>Ssn</td>
     <td><B>First Name</td>
     <td><B>Middle Initial</td>
     <td><B>Last Name</td>
@@ -105,6 +106,7 @@ function mgrnumofemployee(POST, response) {
     for (i in res_json) {
       
       response_form += `<tr><td> ${res_json[i].E_id}</td>`;
+      response_form += `<td> ${res_json[i].Ssn}</td>`;
       response_form += `<td> ${res_json[i].Fname}</td>`;
       response_form += `<td> ${res_json[i].Minit}</td>`;
       response_form += `<td> ${res_json[i].Lname}</td>`;
