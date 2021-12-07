@@ -14,7 +14,23 @@
 <link href="assets/css/animate-custom.css" rel="stylesheet">
 <script src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,7 +47,7 @@
 
                 <div class="navbar-header">
                     <div class="pull-left logo">
-                        <a class="" href="#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
+                        <a class="" href="/index.html#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 </div>
@@ -45,6 +61,21 @@
                             <a href="#team" class="smoothScroll"> Coffee Talk Team</a>
                         </li>
                         <li> <a href="#contact" class="smoothScroll"> Get In Touch</a></li>
+
+                       <li>                      
+                        <script>
+                            //checks if there is a username cookie
+                            var username = getCookie(`username`);
+                            if(username == ""){
+                                document.write(`
+                                <a href="./login" class="w3-bar-item w3-button">Login</a>
+                                `)
+                            }else{
+                                document.write(`
+                                <a href="./logout" class="w3-bar-item w3-button"> Logout</a>
+                                `)
+                            }
+                        </script></li>   
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -52,23 +83,7 @@
         </div>
     </div>
 
-    <script>
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-    </script>
+
 
 
     <style>
@@ -163,7 +178,7 @@
         </div>
 
         <!-- Header -->
-        <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px" id="home">
+        <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px; padding-top: 200px;" id="home">
 
             <img class="w3-image w3-opacity-min" src="./assets/img/header_bg.jpg" alt="Hamburger Catering" width="1600" height="800">
 
@@ -184,7 +199,7 @@
         <div class="w3-content" style="max-width:1100px">
 
             <!-- ==== SERVICES ==== -->
-            <div id="services" name="services">
+            <div id="services" name="home-section">
                 <div class="container">
                     <div class="row">
                         <h2 class="centered">WHAT WE OFFER</h2>
@@ -210,24 +225,9 @@
                 </div>
             </div>
 
-            <section class="hero-section section">
-                <div class="container">
-                    <div class="highlight tb">
-                        <div class="tb-cell">
-                            <p>Want to make an order?</br>
-                                Earn reward points while you are at it!</p>
-                        </div>
-                        <div class="links tb-cell">
-                            <div class="reservation-link">
-                                <a href="#" class="btn reservation-btn">Check My Rewards</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-            </section>
 
-            <div class="div-pattern"></div>
+    
             <!-- ==== ABOUT ==== -->
             <div id="about" name="about">
                 <div class="container">
@@ -371,6 +371,13 @@
                     </div>
                     <!-- /row -->
                 </div>
+                <h1 class="w3-xxlarge">
+
+                    <Form action="./menu.html" method="GET">
+                        <div style="text-align: center;">
+                            <input type="submit" name="submit" value="View Full Menu"></div>
+                    </Form>
+                </h1>
             </div>
             <!-- /container -->
 
@@ -407,13 +414,7 @@
             </div>
             <!-- container -->
 
-            <h1 class="w3-xxlarge">
 
-                <Form action="./menu.html" method="GET">
-                    <div style="text-align: center;">
-                        <input type="submit" name="submit" value="View Full Menu"></div>
-                </Form>
-            </h1>
 
             <hr>
 
