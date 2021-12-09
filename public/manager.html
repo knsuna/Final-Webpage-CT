@@ -4,211 +4,261 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <script src="./functions.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="assets/css/styles.css" rel="stylesheet">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/animate-custom.css" rel="stylesheet">
+<script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="./functions.js"></script>
 <style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-.form-submit-button {
-     background:#0066A2;
-     color:white;
-     border-style:outset;
-     border-color:#0066A2;
-     height:50px;
-     width:100px;
-     font:bold15px arial,sans-serif;
-     text-shadow:none;
-}
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-input[type=submit] {
-    padding:5px 15px; 
-    background:white; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px; 
-    transition-duration: 0.4s;
-}
-input[type=submit]:hover {
-  background-color: black; /* Green */
-  color: white;
-}
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-* {
-  box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+    
+    .form-submit-button {
+        background: #0066A2;
+        color: white;
+        border-style: outset;
+        border-color: #0066A2;
+        height: 50px;
+        width: 100px;
+        font: bold15px arial, sans-serif;
+        text-shadow: none;
+    }
+    
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+    
+    input[type=submit] {
+        padding: 5px 15px;
+        background: white;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        transition-duration: 0.4s;
+    }
+    
+    input[type=submit]:hover {
+        background-color: black;
+        /* Green */
+        color: white;
+    }
+    
+    body {
+        font-family: "Times New Roman", Georgia, Serif;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Playfair Display";
+        letter-spacing: 5px;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    /* Create three equal columns that floats next to each other */
+    
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 </style>
+
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="./index.html" class="w3-bar-item w3-button">Coffee Talk</a>
-    <!-- Right-sided navbar links. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+            <a href="./index.html" class="" href="#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
+            </a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
 
-      <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
+                <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
 
-    </div>
-
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-    <h1 class="w3-xxlarge">Coffee Talk</h1>
-  </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-
-  <!-- About Section -->
-  <div class="w3-row w3-padding-32" id="">
-
-    <h1 class="w3-center" id="">Manager Page</h1><br>
-    <div class="row">
-       
-        <div class="column">
-            <h2>Employee Management</h2>
-            
-            <Form action="/employee_efficiency" method="POST">
-              <u><h4>Employee Efficiency</h4></u>
-                Enter a Start Date <input type='date' name='start_date' max="date" required><BR>
-                Enter a End Date <input type='date' name='end_date' required><BR>
-                <input type="submit" value="Submit">
-                </Form>
-
-                <Form action="/add_employee" method="POST">
-                  <u><h4>Add Employee</h4></u>
-                  SSN <input type='number' maxlength="9" name="Ssn" required><BR>
-                  First name <input type='text' name='Fname' required><BR>
-                  Middle Initial <input type='text' name='Mini'><BR>
-                  Last name <input type='text' name='Lname' required><BR>
-                  Address <input type='text' name='Address' required><BR>
-                  Gender <input type='text' maxlength="1" name='Gender' required><BR>
-                  Birth Date <input type='date'  name='Bdate'><BR>
-                  Salary <input type='number'  name='Salary'><BR>
-                  Manager SSN <input type='number' maxlength="9" name="Superssn" required><BR>
-                  <input type="submit"  value="Submit">
-                  </Form>
-
-                  <Form action="/mgrnumofemployee" method="POST">
-                    <u><h4>Employee Information </h4></u>
-                    <input type="submit" name='submit'>
-                    <input type="hidden" name='mgrnumofemployee' value="SELECT * FROM employee">
-                  </Form>
-        </div>
-        <div class="column" >
-            <h2>Transaction <br>reports</h2>
-            <Form action="/Supplierpayment" method="POST">
-              <u><h4>Payment for Suppliers</h4></u>
-              <input type="submit" value='Submit'>
-              <input type="hidden" name="Supplierpayment" value="SELECT Sup_name, COUNT(material.Sup_num) AS From_Supplier, M_price*M_quantity AS Material_Price FROM material, supplier WHERE material.Sup_num=supplier.Sup_num GROUP BY Sup_name;">
-            </Form>
-
-        </div>
-        <div class="column">
-          <h2>Customer Loyalty</h2>
-          <Form action="/custpoints" method="POST">
-            <u><h4>Customer Points</h4></u>
-            <input type="submit" value='Submit'>
-          </Form>
-          <Form action="/greaterthanavg" method="POST">
-            <u><h4>Customer(s) with greater<br>than average points</h4></u>
-            <input type="submit" value='Submit'>
-            <input type="hidden" name="greaterthanavg" value="SELECT Cust_id, Fname, Lname FROM customer WHERE Cust_id IN (SELECT Cust_id FROM reward WHERE points>(SELECT AVG(points) FROM reward))">
-          </Form>
-
-    </form>
+            </div>
 
         </div>
     </div>
 
-    <div class="row">
-       
-      <div class="column">
-          <h2>Market Analysis</h2>
-          <Form action="/numoforder" method="POST">
-            <u><h4>Total Orders (All Time)</h4></u>
-            <input type="submit" value='Submit'>
-            <input type="hidden" name="numoforder" value="SELECT * FROM `order`">
-          </Form>
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+        <img class="w3-image">
+        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+            <h1 class="w3-xxlarge">Coffee Talk</h1>
+        </div>
+    </header>
 
-          <Form action="/numofordertoday" method="POST">
-            <u><h4>Total Orders (Today)</h4></u>
-            <input type="submit" value='Submit'>
-            <input type="hidden" name="numofordertoday" value="SELECT M_name, COUNT(O_id) AS Number_Sold
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:1100px">
+
+        <!-- About Section -->
+        <div class="w3-row w3-padding-32" id="">
+
+            <h1 class="w3-center" id="">Manager Page</h1><br>
+            <div class="row">
+
+                <div class="column">
+                    <h2>Employee Management</h2>
+
+                    <Form action="/employee_efficiency" method="POST">
+                        <u><h4>Employee Efficiency</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
+                        <BR> Enter a End Date <input type='date' name='end_date' required>
+                        <BR>
+                        <input type="submit" value="Submit">
+                    </Form>
+
+                    <Form action="/add_employee" method="POST">
+                        <u><h4>Add Employee</h4></u> SSN <input type='number' maxlength="9" name="Ssn" required>
+                        <BR> First name <input type='text' name='Fname' required>
+                        <BR> Middle Initial <input type='text' name='Mini'>
+                        <BR> Last name <input type='text' name='Lname' required>
+                        <BR> Address <input type='text' name='Address' required>
+                        <BR> Gender <input type='text' maxlength="1" name='Gender' required>
+                        <BR> Birth Date <input type='date' name='Bdate'>
+                        <BR> Salary <input type='number' name='Salary'>
+                        <BR> Manager SSN <input type='number' maxlength="9" name="Superssn" required>
+                        <BR>
+                        <input type="submit" value="Submit">
+                    </Form>
+
+                    <Form action="/mgrnumofemployee" method="POST">
+                        <u><h4>Employee Information </h4></u>
+                        <input type="submit" name='submit'>
+                        <input type="hidden" name='mgrnumofemployee' value="SELECT * FROM employee">
+                    </Form>
+                </div>
+                <div class="column">
+                    <h2>Transaction <br>reports</h2>
+                    <Form action="/Supplierpayment" method="POST">
+                        <u><h4>Payment for Suppliers</h4></u>
+                        <input type="submit" value='Submit'>
+                        <input type="hidden" name="Supplierpayment" value="SELECT Sup_name, COUNT(material.Sup_num) AS From_Supplier, M_price*M_quantity AS Material_Price FROM material, supplier WHERE material.Sup_num=supplier.Sup_num GROUP BY Sup_name;">
+                    </Form>
+
+                </div>
+                <div class="column">
+                    <h2>Customer Loyalty</h2>
+                    <Form action="/custpoints" method="POST">
+                        <u><h4>Customer Points</h4></u>
+                        <input type="submit" value='Submit'>
+                    </Form>
+                    <Form action="/greaterthanavg" method="POST">
+                        <u><h4>Customer(s) with greater<br>than average points</h4></u>
+                        <input type="submit" value='Submit'>
+                        <input type="hidden" name="greaterthanavg" value="SELECT Cust_id, Fname, Lname FROM customer WHERE Cust_id IN (SELECT Cust_id FROM reward WHERE points>(SELECT AVG(points) FROM reward))">
+                    </Form>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="column">
+                    <h2>Market Analysis</h2>
+                    <Form action="/numoforder" method="POST">
+                        <u><h4>Total Orders (All Time)</h4></u>
+                        <input type="submit" value='Submit'>
+                        <input type="hidden" name="numoforder" value="SELECT * FROM `order`">
+                    </Form>
+
+                    <Form action="/numofordertoday" method="POST">
+                        <u><h4>Total Orders (Today)</h4></u>
+                        <input type="submit" value='Submit'>
+                        <input type="hidden" name="numofordertoday" value="SELECT M_name, COUNT(O_id) AS Number_Sold
             FROM material, `order`
             WHERE M_id=O_id AND O_date=CAST(CURDATE() as DATE)
             GROUP BY M_name">
-          </Form>
+                    </Form>
 
-          <Form action="/greaterthanavgorder" method="POST">
-            <u><h4>Greater than average products</h4></u>
-            <input type="submit" value='Submit'>
-            <input type="hidden" name="greaterthanavgorder" value="SELECT M_name FROM material WHERE M_id IN (SELECT O_id FROM `order` WHERE O_id>(SELECT AVG(O_id) FROM `order`));">
-          </Form>
-          
-      </div>
-      <div class="column" >
+                    <Form action="/greaterthanavgorder" method="POST">
+                        <u><h4>Greater than average products</h4></u>
+                        <input type="submit" value='Submit'>
+                        <input type="hidden" name="greaterthanavgorder" value="SELECT M_name FROM material WHERE M_id IN (SELECT O_id FROM `order` WHERE O_id>(SELECT AVG(O_id) FROM `order`));">
+                    </Form>
+
+                </div>
+                <div class="column">
 
 
 
-      </div>
-      <div class="column">
-        <h2>Sales Report</h2>
-        <Form action="/profits" method="POST">
-          <u><h4>Profits Recieved</h4></u>
-            Enter a Start Date <input type='date' name='start_date' max="date" required><BR>
-            Enter a End Date <input type='date' name='end_date' required><BR>
-            <input type="submit" value="Submit">
-            </Form>
-      
+                </div>
+                <div class="column">
+                    <h2>Sales Report</h2>
+                    <Form action="/profits" method="POST">
+                        <u><h4>Profits Recieved</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
+                        <BR> Enter a End Date <input type='date' name='end_date' required>
+                        <BR>
+                        <input type="submit" value="Submit">
+                    </Form>
 
-  </form>
 
-      </div>
-  </div>
+                    </form>
 
-  </div>
- 
-  <hr>
-  
- 
-  
-<!-- End page content -->
-</div>
+                </div>
+            </div>
 
-<footer class="w3-center w3-light-grey w3-padding-32">
+        </div>
 
-  </footer>
+        <hr>
+
+
+
+        <!-- End page content -->
+    </div>
+
+    <footer class="w3-center w3-light-grey w3-padding-32">
+
+    </footer>
 </body>
+
 </html>
