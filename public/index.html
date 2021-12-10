@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <title>Coffee Talk</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./slideshow.css">
+<script src="./functions.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -31,7 +33,7 @@
 
                 <div class="navbar-header">
                     <div class="pull-left logo">
-                        <a class="" href="#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
+                        <a  href="#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 </div>
@@ -47,30 +49,40 @@
                             <a href="#team" class="smoothScroll"> Coffee Talk Team</a>
                         </li>
                         <li> <a href="#contact" class="smoothScroll"> Get In Touch</a></li>
+                        <li>
+                            
+                            <Form action="./checkout" method="GET">
+                            <input type="submit" value="Order Here"></Form>
+                            
+
+                        </li>
+                        <li>
+                            <script>
+                                var username = getCookie(`username`);
+                                if (username == "") {
+                                    document.write(`
+                                      `)
+                                } else {
+                                    document.write(`
+                                    <a class="smoothScroll">Welcome back, ${username}!</a> 
+                                      `)
+                                }
+                             </script>
+                        </li>
+
                     </ul>
+
                 </div>
+                
+
                 <!--/.nav-collapse -->
             </div>
+            
         </div>
+        
     </div>
 
-    <script>
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-    </script>
+
 
 
     <style>
@@ -89,7 +101,7 @@
         }
         
         input[type=submit] {
-            padding: 5px 15px;
+            padding: 15px;
             background: white;
             border: 0 none;
             cursor: pointer;
@@ -103,20 +115,7 @@
             /* Green */
             color: white;
         }
-        
-        body {
-            font-family: "Times New Roman", Georgia, Serif;
-        }
-        
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Playfair Display";
-            letter-spacing: 5px;
-        }
+
         
         * {
             box-sizing: border-box;
@@ -124,17 +123,52 @@
         /* Create three equal columns that floats next to each other */
         
         .column {
-            float: left;
-            width: 33.33%;
-            padding: 10px;
-        }
-        /* Clear floats after the columns */
-        
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+        float: left;
+        width: 33.33%;
+        padding: 90px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .frame {
+  position: relative;
+  width: 50%;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+  width: 100%;
+  opacity: 0;
+  transition: .2s ease;
+  background-color: grey;
+}
+
+.frame:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
     </style>
 
     <body>
@@ -144,22 +178,11 @@
             <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
                 <a href="./index.html" class="w3-bar-item w3-button">Coffee Talk</a>
                 <!-- Right-sided navbar links. Hide them on small screens -->
+
                 <div class="w3-right w3-hide-small">
 
                     <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
-                    <script>
-                        //checks if there is a username cookie
-                        var username = getCookie(`username`);
-                        if (username == "") {
-                            document.write(`
-            <a href="./login" class="w3-bar-item w3-button">Login</a>
-            `)
-                        } else {
-                            document.write(`
-            <a href="./logout" class="w3-bar-item w3-button"> Logout</a>
-            `)
-                        }
-                    </script>
+
                 </div>
             </div>
         </div>
@@ -167,146 +190,286 @@
         <!-- Header -->
         <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px" id="home">
 
-            <img class="w3-image w3-opacity-min" src="./assets/img/header_bg.jpg" alt="Hamburger Catering" width="1600" height="800">
 
-
-            <div class="w3-display-middle w3-padding-large">
-                <h1 class="w3-xxlarge">
-
-                    <Form action="./checkout" method="GET">
-                        <div style="text-align: center;">
-                            <input type="submit" name="submit" value="Order Here"></div>
-
-                    </Form>
-                </h1>
-            </div>
         </header>
 
         <!-- ==== PORTFOLIO ==== -->
         <div id="portfolio" name="portfolio">
-            <div class="container">
-                <div class="row">
-                    <h2 class="centered">Popular Items</h2>
+            <div class="container"><br>
+                <div class="row"><br>
+                    <div class="w3-content w3-section" style="max-width:550px;" >
+                      
+                        <img class="mySlides w3-animate-fading" src="./pictures/cappuccino.jpeg" style="width:100%;">
+                        <img class="mySlides w3-animate-fading" src="./pictures/coldbrew.jpeg" style="width:100%;">
+                        <img class="mySlides w3-animate-fading" src="./pictures/bundt.jpeg" style="width:96%">
+                        <img class="mySlides w3-animate-fading" src="./pictures/scones.jpeg" style="width:96%">
+                      </div>
+                      
+                      <script>
+                      var myIndex = 0;
+                      carousel();
+                      
+                      function carousel() {
+                        var i;
+                        var x = document.getElementsByClassName("mySlides");
+                        for (i = 0; i < x.length; i++) {
+                          x[i].style.display = "none";  
+                        }
+                        myIndex++;
+                        if (myIndex > x.length) {myIndex = 1}    
+                        x[myIndex-1].style.display = "block";  
+                        setTimeout(carousel, 9000);    
+                      }
+                      </script>
+                      
+                    <br> <h2 class="centered">Menu</h2>
                     <hr>
-                    <div class="col-lg-8 col-lg-offset-2 centered">
-                        <p class="large">Our top six most popular items</p>
-                    </div>
+
                 </div>
                 <!-- /row -->
-                <div class="container">
-                    <div class="row">
-
-                        <!-- PORTFOLIO IMAGE 1 -->
-                        <div class="col-md-4 ">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/thai latte.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Thai Latte</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
-                        </div>
-
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Buy it!</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p><img class="img-responsive" src="assets/img/Coffeetalk/Mugshot.jpg" alt=""></p>
-                                        <p>See <a href="./menu.html" class="w3-bar-item w3-button">Full Menu</a> For Details </p>
-                                    </div>
+               
+            
+                    <!-- Menu Section -->
+                    <h1 class="w3-center" id="coffee" >Coffee and Teas</h1><br>
+                    
+                        <div class="row" >
+                          
+                        <div class="column" >
+                            
+                            <h4>Hot Drip Coffee</h4>
+                            <h5>$3.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/hotdripcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                                <div class="overlay">
+                                  <div class="text">                            
+                                      <Form action="./checkout" method="GET">
+                                    <input type="submit" value="Order Here"></Form></div>
                                 </div>
-                                <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                        </div>
-                        <!-- /.modal -->
+                              </div>
+           
+                            <h4>Hot Tea</h4>
+                            <h5>$3.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/hottea.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+                            
+            
+                            <h4>Cold Brew Iced Coffee</h4>
+                            <h5>$4.00</h5>                           
+                             <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/coldbrewicedcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
+                            <h4>Cold Brew</h4>
+                            <h5>$5.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/coldbrew.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
 
-                        <!-- PORTFOLIO IMAGE 2 -->
-                        <div class="col-md-4">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/latte.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Latte</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
+                              <h4>Red Eye</h4>
+                              <h5>$4.00</h5>
+                              <div class="frame">
+                                  <p class="w3-text-grey"><img src="./pictures/redeye.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                    <div class="text">Order</div>
+                                  </div>
+                                </div>
                         </div>
+                   
+                        <div class="column">
+                            <h4>Americano</h4>
+                            <h5>$4.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
 
-                        <!-- PORTFOLIO IMAGE 3 -->
-                        <div class="col-md-4">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/freshsqueezed.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Fresh Squeezed Govinda's Juice 16 Oz</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
+                              <h4>Espresso</h4>
+                              <h5>$3.50</h5>
+                              <div class="frame">
+                                  <p class="w3-text-grey"><img src="./pictures/espresso.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                    <div class="text">Order</div>
+                                  </div>
+                                </div>
+
+            
+                            <h4>Latte</h4>
+                            <h5>$4.75</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
+                            <h4>Cappuccino</h4>
+                            <h5>$4.50</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/cappuccino.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
+                            <h4>Mocha</h4>
+                            <h5>$5.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/mocha.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="column">
+                            <h4>Thai Latte</h4>
+                            <h5>$5.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/thai latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
+                            <h4>Chai Latte</h4>
+                            <h5>$6.00</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/chai latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
+                            <h4>Matcha/Turmeric Latte</h4>
+                            <h5>$6.50</h5>
+                            <div class="frame">
+                                <p class="w3-text-grey"><img src="./pictures/matcha-turmeric latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
+                                </div>
+                              </div>
+            
                         </div>
                     </div>
-                    <!-- /row -->
-
-                    <!-- PORTFOLIO IMAGE 4 -->
+            
+                    <h1 class="w3-center" id="beverage">Other Beverages</h1><br>
                     <div class="row">
-                        <div class="col-md-4 ">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/breakfast sandwhich.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Breakfast Sandwich</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
+                        <div class="column">
+                            <h4>Ever & Ever</h4>
+                            <h5>$4.25</h5>
+                            <p class="w3-text-grey"><img src="./pictures/ever.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Vita CoCo</h4>
+                            <h5>$4.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/vita.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
                         </div>
-
-                        <!-- PORTFOLIO IMAGE 5 -->
-                        <div class="col-md-4">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/quiche.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Quiche</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
+                        <div class="column">
+                            <h4>Clean Cause</h4>
+                            <h5>$4.50</h5>
+                            <p class="w3-text-grey"><img src="./pictures/clean.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Shaka Tea</h4>
+                            <h5>$4.25</h5>
+                            <p class="w3-text-grey"><img src="./pictures/shaka.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
                         </div>
-
-                        <!-- PORTFOLIO IMAGE 6 -->
-                        <div class="col-md-4">
-                            <div class="grid overlay">
-                                <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/mochi.jpeg" alt="">
-                                    <figcaption>
-                                        <h5>Mochi</h5>
-                                        <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                    <!-- /figcaption -->
-                                </figure>
-                                <!-- /figure -->
-                            </div>
-                            <!-- /grid-overlay -->
+                        <div class="column">
+                            <h4>Fresh Squeezed Govinda's Juice</h4>
+                            <h5>$4.50</h5>
+                            <p class="w3-text-grey"><img src="./pictures/freshsqueezed.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Big Island Booch</h4>
+                            <h5>$6.25</h5>
+                            <p class="w3-text-grey"><img src="./pictures/big island.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+            
                         </div>
-                        <!-- /col -->
                     </div>
-                    <!-- /row -->
-                </div>
-                <!-- /row -->
-            </div>
-        </div>
+                    <hr>
+            
+                    <h1 class="w3-center" id="pasteries">Pasteries</h1><br>
+                    <div class="row">
+                        <div class="column">
+                            <h4>Mini Bundt Cake</h4>
+                            <h5>$5.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/bundt.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Butter Mochi</h4>
+                            <h5>$2.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/mochi.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Muffin of the Day</h4>
+                            <h5>$3.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/muffin.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                        </div>
+                        <div class="column">
+                            <h4>Scones</h4>
+                            <h5>$3.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/scones.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Almond Croissant "Bear Claw"</h4>
+                            <h5>$4.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/almond croissant.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Savory Pastry of the Day</h4>
+                            <h5>$4.25</h5>
+                            <p class="w3-text-grey"><img src="./pictures/pastry of the day.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                        </div>
+                        <div class="column">
+                            <h4>Banana Bread</h4>
+                            <h5>$3.25</h5>
+                            <p class="w3-text-grey"><img src="./pictures/banana.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Oatcake</h4>
+                            <h5>$3.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/oatcake.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+            
+                        </div>
+                    </div>
+            
+                    <h1 class="w3-center" id="breakfast">Breakfast</h1><br>
+                    <div class="row">
+                        <div class="column">
+                            <h4>Lox, Bagel, and Cream Cheese Platter</h4>
+                            <h5>$14.50</h5>
+                            <p class="w3-text-grey"><img src="./pictures/lox.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Pesto Bagel Platter</h4>
+                            <h5>$7.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/pesto.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                        </div>
+                        <div class="column">
+                            <h4>Bagel and Cream Cheese</h4>
+                            <h5>$4.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/cream.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Quiche of the Day</h4>
+                            <h5>$4.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/quiche.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                        </div>
+                        <div class="column">
+                            <h4>Croissant Breakfast Sandwhich</h4>
+                            <h5>$7.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/breakfast sandwhich.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+                            <h4>Bagel Breakfast Sandwhich</h4>
+                            <h5>$8.00</h5>
+                            <p class="w3-text-grey"><img src="./pictures/bagel.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+            
+            
+                        </div>
+                   
+                    </div>
+            
+                
+           
+
         <!-- /container -->
         <!-- Page content -->
         <div class="w3-content" style="max-width:1100px">
@@ -315,10 +478,7 @@
 
             <h1 class="w3-xxlarge">
 
-                <Form action="./menu.html" method="GET">
-                    <div style="text-align: center;">
-                        <input type="submit" name="submit" value="View Full Menu"></div>
-                </Form>
+
             </h1>
 
             <hr>
@@ -515,4 +675,4 @@
 <script type="text/javascript" src="assets/js/custom-scripts.js"></script>
 </body>
 
-</html>
+</html>>
