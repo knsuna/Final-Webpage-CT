@@ -80,8 +80,10 @@ today = yyyy + '-'+ mm +'-'+ dd;
       <h2>Time: ${otime}
       <h2>For Customer ID: ${cid}
     </div>
+    <button onclick="history.go(-2)">Go Back</button>
   </div>
- 
+
+
   <hr>
   
  

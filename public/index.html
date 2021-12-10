@@ -16,7 +16,23 @@
 <link href="assets/css/animate-custom.css" rel="stylesheet">
 <script src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -33,7 +49,11 @@
 
                 <div class="navbar-header">
                     <div class="pull-left logo">
+<<<<<<< HEAD
                         <a  href="#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
+=======
+                        <a class="" href="/index.html#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
+>>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 </div>
@@ -49,6 +69,7 @@
                             <a href="#team" class="smoothScroll"> Coffee Talk Team</a>
                         </li>
                         <li> <a href="#contact" class="smoothScroll"> Get In Touch</a></li>
+<<<<<<< HEAD
                         <li>
                             
                             <Form action="./checkout" method="GET">
@@ -70,6 +91,23 @@
                              </script>
                         </li>
 
+=======
+
+                       <li>                      
+                        <script>
+                            //checks if there is a username cookie
+                            var username = getCookie(`username`);
+                            if(username == ""){
+                                document.write(`
+                                <a href="./login" class="w3-bar-item w3-button">Login</a>
+                                `)
+                            }else{
+                                document.write(`
+                                <a href="./logout" class="w3-bar-item w3-button"> Logout</a>
+                                `)
+                            }
+                        </script></li>   
+>>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
                     </ul>
 
                 </div>
@@ -188,7 +226,7 @@
         </div>
 
         <!-- Header -->
-        <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px" id="home">
+        <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px; padding-top: 200px;" id="home">
 
 
         </header>
@@ -490,7 +528,7 @@
             </div>
 
             <!-- ==== SERVICES ==== -->
-            <div id="services" name="services">
+            <div id="services" name="home-section">
                 <div class="container">
                     <div class="row">
                         <h2 class="centered">WHAT WE OFFER</h2>
@@ -516,24 +554,9 @@
                 </div>
             </div>
 
-            <section class="hero-section section">
-                <div class="container">
-                    <div class="highlight tb">
-                        <div class="tb-cell">
-                            <p>Want to make an order?</br>
-                                Earn reward points while you are at it!</p>
-                        </div>
-                        <div class="links tb-cell">
-                            <div class="reservation-link">
-                                <a href="#" class="btn reservation-btn">Check My Rewards</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-            </section>
 
-            <div class="div-pattern"></div>
+    
             <!-- ==== ABOUT ==== -->
             <div id="about" name="about">
                 <div class="container">
@@ -553,6 +576,142 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
+=======
+            <!-- ==== PORTFOLIO ==== -->
+            <div id="portfolio" name="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="centered">Popular Items</h2>
+                        <hr>
+                        <div class="col-lg-8 col-lg-offset-2 centered">
+                            <p class="large">Our top six most popular items</p>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                    <div class="container">
+                        <div class="row">
+
+                            <!-- PORTFOLIO IMAGE 1 -->
+                            <div class="col-md-4 ">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/thai latte.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Thai Latte</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Buy it!</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><img class="img-responsive" src="assets/img/Coffeetalk/Mugshot.jpg" alt=""></p>
+                                            <p>See Full Menu For Details </p>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+
+                            <!-- PORTFOLIO IMAGE 2 -->
+                            <div class="col-md-4">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/latte.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Latte</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+
+                            <!-- PORTFOLIO IMAGE 3 -->
+                            <div class="col-md-4">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/freshsqueezed.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Fresh Squeezed Govinda's Juice 16 Oz</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+                        </div>
+                        <!-- /row -->
+
+                        <!-- PORTFOLIO IMAGE 4 -->
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/breakfast sandwhich.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Breakfast Sandwich</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+
+                            <!-- PORTFOLIO IMAGE 5 -->
+                            <div class="col-md-4">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/quiche.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Quiche</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+
+                            <!-- PORTFOLIO IMAGE 6 -->
+                            <div class="col-md-4">
+                                <div class="grid overlay">
+                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/mochi.jpeg" alt="">
+                                        <figcaption>
+                                            <h5>Mochi</h5>
+                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
+                                        <!-- /figcaption -->
+                                    </figure>
+                                    <!-- /figure -->
+                                </div>
+                                <!-- /grid-overlay -->
+                            </div>
+                            <!-- /col -->
+                        </div>
+                        <!-- /row -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <h1 class="w3-xxlarge">
+
+                    <Form action="./menu.html" method="GET">
+                        <div style="text-align: center;">
+                            <input type="submit" name="submit" value="View Full Menu"></div>
+                    </Form>
+                </h1>
+            </div>
+            <!-- /container -->
+>>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
 
             <!-- ==== TEAM MEMBERS ==== -->
             <div id="team" name="team">
@@ -585,6 +744,20 @@
                 </div>
                 <!-- row -->
             </div>
+<<<<<<< HEAD
+=======
+            <!-- container -->
+
+
+
+            <hr>
+
+
+            <div class="container" style="background-color:#f1f1f1">
+
+
+            </div>
+>>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
 
 
             <!-- Footer -->
