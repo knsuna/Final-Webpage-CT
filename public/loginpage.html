@@ -1,136 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+<title>Coffee Talk</title>
+<style>
+HTML SCSS JSResult Skip Results Iframe EDIT ON *, *:before, *:after {
+	 -moz-box-sizing: border-box;
+	 -webkit-box-sizing: border-box;
+	 box-sizing: border-box;
+}
+ body, html, .login_form {
+	 height: 100%;
+}
+ body {
+	 background: #262626;
+}
+ .login_form {
+	 display: -webkit-box;
+	 display: -moz-box;
+	 display: -ms-flexbox;
+	 display: -webkit-flex;
+	 display: flex;
+	 -webkit-box-flex: center;
+	 -moz-box-flex: center;
+	 -webkit-flex: center;
+	 -ms-flex: center;
+	 flex: center;
+	 -webkit-justify-content: center;
+	 -moz-justify-content: center;
+	 justify-content: center;
+	 -webkit-box-pack: center;
+	 -moz-box-pack: center;
+	 -ms-flex-pack: center;
+	 -webkit-align-items: center;
+	 align-items: center;
+}
+ .login-wrapper {
+	 max-width: 500px;
+	 width: 100%;
+}
+ .logo {
+	 text-align: center;
+}
+ .logo img {
+	 max-width: 200px;
+	 width: 100%;
+	 margin: 1em auto 2em;
+}
+ form {
+	 background: #000;
+	 padding: 2em 1em;
+     font-family: 'Open Sans', sans-serif;
+	 -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 border-radius: 5px;
+}
+ form label {
+	 color: #fff;
+	 margin: 0 3% 0.25em;
+	 display: block;
+     font-family: 'Open Sans', sans-serif;
+}
+ form input {
+	 width: 94%;
+	 padding: 0.5em 0.25em;
+	 margin: 0 3% 1em;
+	 font-size: 1.2em;
+	 border: 2px solid #000;
+	 outline: none;
+	 -webkit-transition: all 0.25s;
+	 -moz-transition: all 0.25s;
+	 -ms-transition: all 0.25s;
+	 -o-transition: all 0.25s;
+	 transition: all 0.25s;
+	 -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 border-radius: 5px;
+}
+ form input.password {
+	 padding-right: 4rem;
+}
+ form input:focus {
+	 border: 2px solid orange;
+}
+ form button {
+	 width: 94%;
+	 margin: 2em 3% 0;
+	 border: none;
+	 background: orange;
+	 padding: 1em 0;
+	 font-size: 1.25em;
+	 clear: both;
+	 color: #000;
+	 -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 border-radius: 5px;
+	 outline: none;
+	 -webkit-transition: all 0.25s;
+	 -moz-transition: all 0.25s;
+	 -ms-transition: all 0.25s;
+	 -o-transition: all 0.25s;
+	 transition: all 0.25s;
+	 cursor: pointer;
+}
+ form button:focus, form button:hover {
+	 background: #262626;
+}
+ .hide-show {
+	 width: 94%;
+	 margin: -3.62em 3% 0 1.5%;
+	 position: relative;
+	 z-index: 5;
+	 display: none;
+}
+ .hide-show span {
+	 background: #1fd100;
+	 font-size: 1em;
+	 padding: 0.5em;
+	 float: right;
+	 -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+	 border-radius: 5px;
+	 cursor: pointer;
+}
+ 
+</style>
+<script>
+    $(function(){
+  $('.hide-show').show();
+  $('.hide-show span').addClass('show')
+  
+  $('.hide-show span').click(function(){
+    if( $(this).hasClass('show') ) {
+      $(this).text('Hide');
+      $('input[name="login[password]"]').attr('type','text');
+      $(this).removeClass('show');
+    } else {
+       $(this).text('Show');
+       $('input[name="login[password]"]').attr('type','password');
+       $(this).addClass('show');
+    }
+  });
+  
+  $('form button[type="submit"]').on('click', function(){
+    $('.hide-show span').text('Show').addClass('show');
+    $('.hide-show').parent().find('input[name="login[password]"]').attr('type','password');
+  }); 
+});
+</script>
+<div class="login_form">
+    <setion class="login-wrapper">
+      
+      <div class="logo">
+       <a target="_blank" rel="noopener" href="./index.html">
+       <img src="assets/img/CoffeeTalkLogo.png" alt=""></a>
+      </div>
+      
+      <form action="/employeelogin" method="post">
+       
+        <label for="username">User Name</label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter Password" name="password" required>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Login Page with Background Image Example</title>
-    <link rel="stylesheet" href="./style.css">
-
-
-
-    <style>
-        @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-        #bg {
-            background-image: url('./pictures/20170610_180133.jpg');
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            filter: blur(5px);
-        }
-        
-        body {
-            font-family: 'Lato', sans-serif;
-            color: #4A4A4A;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
-        
-        form {
-            width: 350px;
-            position: relative;
-        }
-        
-        form .form-field::before {
-            font-size: 20px;
-            position: absolute;
-            left: 15px;
-            top: 17px;
-            color: #888888;
-            content: " ";
-            display: block;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        
-        form .form-field:nth-child(1)::before {
-            background-image: url('./pictures/user-icon.png');
-            width: 20px;
-            height: 20px;
-            top: 15px;
-        }
-        
-        form .form-field:nth-child(2)::before {
-            background-image: url('./pictures/lock-icon.png');
-            width: 16px;
-            height: 16px;
-        }
-        
-        form .form-field {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-        
-        form input {
-            font-family: inherit;
-            width: 100%;
-            outline: none;
-            background-color: #fff;
-            border-radius: 4px;
-            border: none;
-            display: block;
-            padding: 0.9rem 0.7rem;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-            font-size: 17px;
-            color: #4A4A4A;
-            text-indent: 40px;
-        }
-        
-        form .btn {
-            outline: none;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            margin: 0 auto;
-            padding: 0.9rem 2.5rem;
-            text-align: center;
-            background-color: #47AB11;
-            color: #fff;
-            border-radius: 4px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-            font-size: 17px;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- partial:index.partial.html -->
-    <div id="bg"></div>
-
-    <form action="/employeelogin" method="post">
-        <div class="imgcontainer">
+        <div class="hide-show">
+          <span>Show</span>
         </div>
-        <h1>Employee Login</h1>
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-
-            <button type="submit">Login</button>
-        </div>
-    </form>
-    <!-- partial -->
-
-</body>
-
-
-
-</html>
+        <button type="submit">Sign In</button>
+      </form>
+      
+    </section>
+  </div>
+  

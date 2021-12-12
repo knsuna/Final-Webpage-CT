@@ -1,10 +1,9 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <title>Coffee Talk</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="./slideshow.css">
 <script src="./functions.js"></script>
 
 <!-- Bootstrap core CSS -->
@@ -49,22 +48,22 @@
 
                 <div class="navbar-header">
                     <div class="pull-left logo">
-                        <a  href="#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
+                        <a  href="./index.html#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav pull-right">
-                        <li> <a href="#portfolio" class="smoothScroll"> Special</a></li>
-                        <li> <a href="#services" class="smoothScroll">What we Offer</a></li>
+                        <li> <a href="./index.html#portfolio" class="smoothScroll"> Menu</a></li>
+                        <li> <a href="./index.html#services" class="smoothScroll">What we Offer</a></li>
 
 
-                        <li> <a href="#about" class="smoothScroll"> Our Shop</a></li>
+                        <li> <a href="./index.html#about" class="smoothScroll"> Our Shop</a></li>
 
                         <li>
-                            <a href="#team" class="smoothScroll"> Coffee Talk Team</a>
+                            <a href="./index.html#team" class="smoothScroll"> Coffee Talk Team</a>
                         </li>
-                        <li> <a href="#contact" class="smoothScroll"> Get In Touch</a></li>
+                        <li> <a href="./index.html#contact" class="smoothScroll"> Get In Touch</a></li>
                         <li>
                             
                             <Form action="./checkout" method="GET">
@@ -75,7 +74,7 @@
                         <li>
                             <script>
                                 var username = getCookie(`username`);
-                                if (username == "") {
+                                if (username == "undefined" || username=="") {
                                     document.write(`
                                       `)
                                 } else {
@@ -103,7 +102,7 @@
 
     <style>
         body {
-            font-family: "Times New Roman", Georgia, Serif;
+            background-color: orange;
         }
         
         h1,
@@ -153,41 +152,40 @@
 
     .frame {
   position: relative;
-  width: 50%;
-}
+
+    }
 
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 75%;
-  width: 100%;
-  opacity: 0;
-  transition: .2s ease;
-  background-color: grey;
-}
+    .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    width: 75%;
+    opacity: 0;
+    transition: .2s ease;
+    background-color: grey;
+    }
 
-.frame:hover .overlay {
-  opacity: 1;
-}
+    .frame:hover .overlay {
+    opacity: 1;
+    }
 
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    }
     </style>
 
-    <body>
 
         <!-- Navbar (sit on top) -->
         <div class="w3-top">
@@ -204,10 +202,7 @@
         </div>
 
         <!-- Header -->
-        <header class="w3-display-container w3-content w3-wide" style="max-width:800px;min-width:250px; padding-top: 200px;" id="home">
 
-
-        </header>
 
         <!-- ==== PORTFOLIO ==== -->
         <div id="portfolio" name="portfolio">
@@ -238,7 +233,7 @@
                       }
                       </script>
                       
-                    <br> <h2 class="centered">Menu</h2>
+                    <br> <h1 class="w3-center">Menu</h1>
                     <hr>
 
                 </div>
@@ -246,19 +241,19 @@
                
             
                     <!-- Menu Section -->
-                    <h1 class="w3-center" id="coffee" >Coffee and Teas</h1><br>
+                <h1 class="w3-center" id="coffee" >Coffee and Teas</h1><br>
                     
-                        <div class="row" >
+                    <div class="row" >
                           
                         <div class="column" >
                             
                             <h4>Hot Drip Coffee</h4>
                             <h5>$3.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/hotdripcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                                <p class="w3-text-grey"><img src="./pictures/hotdripcoffee.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
                                 <div class="overlay">
                                   <div class="text">                            
-                                      <Form action="./checkout" method="GET">
+                                      <Form action="./specialcheckout" method="GET">
                                     <input type="submit" value="Order Here"></Form></div>
                                 </div>
                               </div>
@@ -266,7 +261,7 @@
                             <h4>Hot Tea</h4>
                             <h5>$3.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/hottea.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/hottea.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -275,7 +270,7 @@
                             <h4>Cold Brew Iced Coffee</h4>
                             <h5>$4.00</h5>                           
                              <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/coldbrewicedcoffee.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/coldbrewicedcoffee.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -283,7 +278,7 @@
                             <h4>Cold Brew</h4>
                             <h5>$5.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/coldbrew.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/coldbrew.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -292,7 +287,7 @@
                               <h4>Red Eye</h4>
                               <h5>$4.00</h5>
                               <div class="frame">
-                                  <p class="w3-text-grey"><img src="./pictures/redeye.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <p class="w3-text-grey"><img src="./pictures/redeye.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                     <div class="text">Order</div>
                                   </div>
                                 </div>
@@ -302,15 +297,18 @@
                             <h4>Americano</h4>
                             <h5>$4.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
-                                  <div class="text">Order</div>
+                                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
+                                <div class="overlay">
+                                  <div class="text">                            
+                                      <Form action="./specialcheckout2" method="GET">
+                                    <input type="submit" value="Order Here"></Form></div>
                                 </div>
                               </div>
 
                               <h4>Espresso</h4>
                               <h5>$3.50</h5>
                               <div class="frame">
-                                  <p class="w3-text-grey"><img src="./pictures/espresso.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <p class="w3-text-grey"><img src="./pictures/espresso.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                     <div class="text">Order</div>
                                   </div>
                                 </div>
@@ -319,7 +317,7 @@
                             <h4>Latte</h4>
                             <h5>$4.75</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/latte.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -327,7 +325,7 @@
                             <h4>Cappuccino</h4>
                             <h5>$4.50</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/cappuccino.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/cappuccino.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -335,7 +333,7 @@
                             <h4>Mocha</h4>
                             <h5>$5.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/mocha.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/mocha.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -344,7 +342,7 @@
                             <h4>Thai Latte</h4>
                             <h5>$5.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/thai latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/thai latte.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -352,7 +350,7 @@
                             <h4>Chai Latte</h4>
                             <h5>$6.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/chai latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/chai latte.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -360,7 +358,7 @@
                             <h4>Matcha/Turmeric Latte</h4>
                             <h5>$6.50</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/matcha-turmeric latte.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                <p class="w3-text-grey"><img src="./pictures/matcha-turmeric latte.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
                                   <div class="text">Order</div>
                                 </div>
                               </div>
@@ -373,31 +371,31 @@
                         <div class="column">
                             <h4>Ever & Ever</h4>
                             <h5>$4.25</h5>
-                            <p class="w3-text-grey"><img src="./pictures/ever.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/ever.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Vita CoCo</h4>
                             <h5>$4.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/vita.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/vita.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Clean Cause</h4>
                             <h5>$4.50</h5>
-                            <p class="w3-text-grey"><img src="./pictures/clean.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/clean.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Shaka Tea</h4>
                             <h5>$4.25</h5>
-                            <p class="w3-text-grey"><img src="./pictures/shaka.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/shaka.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Fresh Squeezed Govinda's Juice</h4>
                             <h5>$4.50</h5>
-                            <p class="w3-text-grey"><img src="./pictures/freshsqueezed.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/freshsqueezed.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Big Island Booch</h4>
                             <h5>$6.25</h5>
-                            <p class="w3-text-grey"><img src="./pictures/big island.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/big island.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
             
                         </div>
@@ -409,80 +407,81 @@
                         <div class="column">
                             <h4>Mini Bundt Cake</h4>
                             <h5>$5.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/bundt.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/bundt.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Butter Mochi</h4>
                             <h5>$2.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/mochi.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/mochi.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Muffin of the Day</h4>
                             <h5>$3.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/muffin.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/muffin.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Scones</h4>
                             <h5>$3.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/scones.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/scones.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Almond Croissant "Bear Claw"</h4>
                             <h5>$4.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/almond croissant.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/almond croissant.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Savory Pastry of the Day</h4>
                             <h5>$4.25</h5>
-                            <p class="w3-text-grey"><img src="./pictures/pastry of the day.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/pastry of the day.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Banana Bread</h4>
                             <h5>$3.25</h5>
-                            <p class="w3-text-grey"><img src="./pictures/banana.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/banana.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Oatcake</h4>
                             <h5>$3.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/oatcake.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/oatcake.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
             
                         </div>
-                    </div>
+                    </div><hr>
             
                     <h1 class="w3-center" id="breakfast">Breakfast</h1><br>
                     <div class="row">
                         <div class="column">
                             <h4>Lox, Bagel, and Cream Cheese Platter</h4>
                             <h5>$14.50</h5>
-                            <p class="w3-text-grey"><img src="./pictures/lox.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/lox.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Pesto Bagel Platter</h4>
                             <h5>$7.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/pesto.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/pesto.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Bagel and Cream Cheese</h4>
                             <h5>$4.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/cream.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/cream.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Quiche of the Day</h4>
                             <h5>$4.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/quiche.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/quiche.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                         </div>
                         <div class="column">
                             <h4>Croissant Breakfast Sandwhich</h4>
                             <h5>$7.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/breakfast sandwhich.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/breakfast sandwhich.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
                             <h4>Bagel Breakfast Sandwhich</h4>
                             <h5>$8.00</h5>
-                            <p class="w3-text-grey"><img src="./pictures/bagel.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="150" height="187.5"></p><br>
+                            <p class="w3-text-grey"><img src="./pictures/bagel.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
             
             
                         </div>
                    
                     </div>
-            
+            </div>
+        </div>
                 
            
 
@@ -554,143 +553,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-=======
-            <!-- ==== PORTFOLIO ==== -->
-            <div id="portfolio" name="portfolio">
-                <div class="container">
-                    <div class="row">
-                        <h2 class="centered">Popular Items</h2>
-                        <hr>
-                        <div class="col-lg-8 col-lg-offset-2 centered">
-                            <p class="large">Our top six most popular items</p>
-                        </div>
-                    </div>
-                    <!-- /row -->
-                    <div class="container">
-                        <div class="row">
-
-                            <!-- PORTFOLIO IMAGE 1 -->
-                            <div class="col-md-4 ">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/thai latte.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Thai Latte</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Buy it!</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p><img class="img-responsive" src="assets/img/Coffeetalk/Mugshot.jpg" alt=""></p>
-                                            <p>See Full Menu For Details </p>
-                                        </div>
-                                    </div>
-                                    <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
-                            </div>
-                            <!-- /.modal -->
-
-                            <!-- PORTFOLIO IMAGE 2 -->
-                            <div class="col-md-4">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/latte.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Latte</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-
-                            <!-- PORTFOLIO IMAGE 3 -->
-                            <div class="col-md-4">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/freshsqueezed.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Fresh Squeezed Govinda's Juice 16 Oz</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-                        </div>
-                        <!-- /row -->
-
-                        <!-- PORTFOLIO IMAGE 4 -->
-                        <div class="row">
-                            <div class="col-md-4 ">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/breakfast sandwhich.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Breakfast Sandwich</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-
-                            <!-- PORTFOLIO IMAGE 5 -->
-                            <div class="col-md-4">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/quiche.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Quiche</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-
-                            <!-- PORTFOLIO IMAGE 6 -->
-                            <div class="col-md-4">
-                                <div class="grid overlay">
-                                    <figure> <img class="img-responsive" src="assets/img/Coffeetalk/Portfolio/mochi.jpeg" alt="">
-                                        <figcaption>
-                                            <h5>Mochi</h5>
-                                            <a data-toggle="modal" href="#myModal" class="btn btn-default">More Details</a> </figcaption>
-                                        <!-- /figcaption -->
-                                    </figure>
-                                    <!-- /figure -->
-                                </div>
-                                <!-- /grid-overlay -->
-                            </div>
-                            <!-- /col -->
-                        </div>
-                        <!-- /row -->
-                    </div>
-                    <!-- /row -->
-                </div>
-                <h1 class="w3-xxlarge">
-
-                    <Form action="./menu.html" method="GET">
-                        <div style="text-align: center;">
-                            <input type="submit" name="submit" value="View Full Menu"></div>
-                    </Form>
-                </h1>
-            </div>
-            <!-- /container -->
->>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
-
             <!-- ==== TEAM MEMBERS ==== -->
             <div id="team" name="team">
                 <div class="container">
@@ -722,21 +584,6 @@
                 </div>
                 <!-- row -->
             </div>
-<<<<<<< HEAD
-=======
-            <!-- container -->
-
-
-
-            <hr>
-
-
-            <div class="container" style="background-color:#f1f1f1">
-
-
-            </div>
->>>>>>> 7a63465417092780bd2a653346d551b8fa44f710
-
 
             <!-- Footer -->
             <footer class="w3-center w3-light-grey w3-padding-32">

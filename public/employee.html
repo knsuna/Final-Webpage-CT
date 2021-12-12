@@ -24,20 +24,9 @@
 <script src="./functions.js"></script>
 
 <style>
-    
-    .form-submit-button {
-        background: #0066A2;
-        color: white;
-        border-style: outset;
-        border-color: #0066A2;
-        height: 50px;
-        width: 100px;
-        font: bold15px arial, sans-serif;
-        text-shadow: none;
-    }
-    
     body {
-        font-family: "Times New Roman", Georgia, Serif;
+        font-family: 'Open Sans', sans-serif;
+        background-color: orange;
     }
     
     h1,
@@ -46,7 +35,7 @@
     h4,
     h5,
     h6 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         letter-spacing: 5px;
     }
     
@@ -61,13 +50,13 @@
     }
     
     input[type=submit]:hover {
-        background-color: black;
+        background-color: white;
         /* Green */
-        color: white;
+        color: black;
     }
     
     body {
-        font-family: "Times New Roman", Georgia, Serif;
+        font-family: 'Open Sans', sans-serif;
     }
     
     h1,
@@ -105,7 +94,7 @@
 
     <div class="w3-top">
         <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a  href="#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
+            <a  href="index.html#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <div class="navbar">
@@ -116,12 +105,8 @@
                       <div class="dropdown-content">
 
                         <Form action="/numofmaterials" method="POST">
-                            <input type="submit" value='Total Materials'>
+                            <input type="submit" value='Inventory Information'>
                             <input type="hidden" name='numofmaterials' value="SELECT * FROM material">
-                        </Form>
-
-                        <Form action="./check_inv" method="POST">
-                            <input type="submit" value="Check for Restock">
                         </Form>
 
                       </div>
@@ -136,10 +121,18 @@
                                 <input type="hidden" name="numoforder" value="SELECT * FROM `order`">
                             </Form>
 
-                            <Form action="./employee_order_form" method="GET">
+                            <Form action="./barchart.html" method="GET">
+                                <input type="submit" value='Order Graph'>
+
+                            </Form>
+
+                            <Form action="/employee_order_form" method="GET">
                                 <input type="submit" value="Create Order">
                             </Form>
 
+                            <Form action="/orderperhour" method="POST">
+                                <input type="submit" value="Order's per hour">
+                            </Form>
 
                         </div>
                       </div> 
@@ -168,9 +161,23 @@
 
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-        <img class="w3-image" src="/w3images/hamburger.jpg" alt="Hamburger Catering" width="1600" height="800">
-        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-            <h1 class="w3-xxlarge">Coffee Talk</h1>
+
+        <img class="w3-image" src="./pictures/unnamed.jpg" alt="Hamburger Catering" width="1600" height="800">
+
+<script>
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+</script>
+        <div class="w3-display-middle w3-padding-large">
+            <h1 class="w3-xxlarge" style="background-color: white;">
+                <div class="container">
+                    <H1>Hello: knsunaha</H1>
+                    <h3>Your Shift is from: 12-13-2021 @ 8:00AM</h3> 
+                    <h3>Current Date and Time: <script>document.write(dateTime)</script></h3>
+                    
+                </div>
         </div>
     </header>
 
@@ -180,13 +187,8 @@
         <!-- About Section -->
         <div class="w3-row w3-padding-32" id="">
 
-            <h1 class="w3-center" id="">Employee Page</h1><br>
-            <div class="row">
-                
-               
-            </div>
 
-        </div>
+
 
         <hr>
         <div class="loginPopup">

@@ -4,60 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./slideshow.css">
+<script src="./functions.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="assets/css/styles.css" rel="stylesheet">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/animate-custom.css" rel="stylesheet">
+<script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
 <style>
-    body {
-        font-family: "Times New Roman", Georgia, Serif;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Playfair Display";
-        letter-spacing: 5px;
-    }
-    
-    input[type=submit] {
-        padding: 5px 15px;
-        background: white;
-        border: 0 none;
-        cursor: pointer;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        transition-duration: 0.4s;
-    }
-    
-    input[type=submit]:hover {
-        background-color: black;
-        /* Green */
-        color: white;
-    }
-    
-    body {
-        font-family: "Times New Roman", Georgia, Serif;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Playfair Display";
-        letter-spacing: 5px;
-    }
-    
-    * {
-        box-sizing: border-box;
-    }
-    /* Create three equal columns that floats next to each other */
-    
-    .column {
+            body {
+            background-color: orange;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+        }
+        
+        input[type=submit] {
+            padding: 15px;
+            background: white;
+            border: 0 none;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            transition-duration: 0.4s;
+        }
+        
+        input[type=submit]:hover {
+            background-color: black;
+            /* Green */
+            color: white;
+        }
+
+        
+        * {
+            box-sizing: border-box;
+        }
+        /* Create three equal columns that floats next to each other */
+        
+        .column {
         float: left;
         width: 33.33%;
-        padding: 10px;
+        padding: 90px;
     }
     /* Clear floats after the columns */
     
@@ -66,55 +82,135 @@
         display: table;
         clear: both;
     }
+
+    .frame {
+  position: relative;
+
+    }
+
+
+    .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    width: 75%;
+    opacity: 0;
+    transition: .2s ease;
+    background-color: grey;
+    }
+
+    .frame:hover .overlay {
+    opacity: 1;
+    }
+
+    .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    }
 </style>
 
 <body>
 
     <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="./index.html" class="" href="#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
+    <div id="navbar-main">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
 
-                <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
+                <div class="navbar-header">
+                    <div class="pull-left logo">
+                        <a  href="./index.html#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li> <a href="./index.html#portfolio" class="smoothScroll"> Menu</a></li>
+                        <li> <a href="./index.html#services" class="smoothScroll">What we Offer</a></li>
+
+
+                        <li> <a href="./index.html#about" class="smoothScroll"> Our Shop</a></li>
+
+                        <li>
+                            <a href="./index.html#team" class="smoothScroll"> Coffee Talk Team</a>
+                        </li>
+                        <li> <a href="./index.html#contact" class="smoothScroll"> Get In Touch</a></li>
+                        <li>
+                            
+                            <Form action="./checkout" method="GET">
+                            <input type="submit" value="Order Here"></Form>
+                            
+
+                        </li>
+                        <li>
+                            <script>
+                                var username = getCookie(`username`);
+                                if (username == "undefined" || username=="") {
+                                    document.write(`
+                                      `)
+                                } else {
+                                    document.write(`
+                                    <a class="smoothScroll">Welcome back, ${username}!</a> 
+                                      `)
+                                }
+                             </script>
+                        </li>
+
+                    </ul>
+
+                </div>
+                
+
+                <!--/.nav-collapse -->
             </div>
+            
         </div>
+        
     </div>
 
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
 
-        <img class="w3-image w3-opacity-min" src="./pictures/73921770-6a30-11ea-aff6-29b0323a275f.jpg" alt="Hamburger Catering" width="1600" height="800">
+        <img class="w3-image" src="./pictures/73921770-6a30-11ea-aff6-29b0323a275f.jpg" alt="Hamburger Catering" width="1600" height="800">
 
 
         <div class="w3-display-middle w3-padding-large" style="background-color: grey;">
             <h1 class="w3-xlarge">
-                <div class="container">
+                
                     <form action="./register" method="post">
-                        <label for="fname"><br><b>First Name</b></label>
-                        <br> <input type="text" placeholder="Enter First Name" name="fname" required>
+                        <label for="fname"><b>First Name</b></label>
+                        <br> <input type="text" placeholder="Enter First Name" name="fname" required><br>
 
-                        <label for="minit"><br><b>Middle Name</b></label>
-                        <br><input type="text" placeholder="Enter Middle Name" name="minit">
+                        <label for="minit"><b>Middle Name</b></label>
+                        <br><input type="text" placeholder="Enter Middle Name" name="minit"><br>
 
-                        <label for="lname"><br><b>Last Name</b></label>
-                        <br><input type="text" placeholder="Enter Last Name" name="lname" required>
+                        <label for="lname"><b>Last Name</b></label>
+                        <br><input type="text" placeholder="Enter Last Name" name="lname" required><br>
 
-                        <label for="uname"><br><b>Username</b></label>
-                        <br><input type="text" placeholder="Enter Username" name="username" required>
+                        <label for="uname"><b>Username</b></label>
+                        <br><input type="text" placeholder="Enter Username" name="username" required><br>
 
-                        <label for="psw"><br><b>Password</b></label>
-                        <br><input type="password" placeholder="Enter Password" name="secondpassword" required>
+                        <label for="psw"><b>Password</b></label>
+                        <br><input type="password" placeholder="Enter Password" name="secondpassword" required><br>
 
-                        <label for="psw"><br><b>Re-Enter Password</b></label>
-                        <br> <input type="password" placeholder="Re-Enter Password" name="password" required>
+                        <label for="psw"><b>Re-Enter Password</b></label>
+                        <br> <input type="password" placeholder="Re-Enter Password" name="password" required><br>
 
-                        <label for="email"><br><b>Email</b></label>
-                        <br> <input type="email" placeholder="Enter Email" name="email" required>
+                        <label for="email"><b>Email</b></label>
+                        <br> <input type="email" placeholder="Enter Email" name="email" required><br>
 
-                        <label for="pnum"><br><b>Phone Number</b></label>
-                        <br><input type="pnum" placeholder="Enter Phone Number" name="pnum" required>
+                        <label for="pnum"><b>Phone Number</b></label>
+                        <br><input type="pnum" placeholder="Enter Phone Number" name="pnum" required><br>
 
                         <br><button type="submit">Register</button>
 
@@ -124,7 +220,7 @@
 
                     </form>
 
-                </div>
+                
         </div>
     </header>
 

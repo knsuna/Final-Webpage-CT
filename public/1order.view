@@ -147,7 +147,7 @@ today = yyyy + '-'+ mm +'-'+ dd;
       <Form action="/create_order" method="POST">
         <h2>Create Order</h2>
         <label for="dropdown">Enter Product: ${response_form}</label><br>
-        Order Quantity <input type='text' name='oqty' required><BR>
+        Order Quantity <input type='text' name='oqty' value="1" required><BR>
         Order Date <input type='date' name='odate' required><BR>
         Order Time <input type='time'  name='otime' required><BR>
         Customer ID <input type='number' maxlength="10" name='cid' ${C_form} required readonly><BR>
@@ -170,7 +170,7 @@ today = yyyy + '-'+ mm +'-'+ dd;
                                 <p class="w3-text-grey"><img src="./pictures/hotdripcoffee.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
                                 <div class="overlay">
                                   <div class="text">                            
-                                      <Form action="./specialcheckout" method="GET">
+                                      <Form action="./checkout" method="GET">
                                     <input type="submit" value="Order Here"></Form></div>
                                 </div>
                               </div>
@@ -214,11 +214,8 @@ today = yyyy + '-'+ mm +'-'+ dd;
                             <h4>Americano</h4>
                             <h5>$4.00</h5>
                             <div class="frame">
-                                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>
-                                <div class="overlay">
-                                  <div class="text">                            
-                                      <Form action="./specialcheckout2" method="GET">
-                                    <input type="submit" value="Order Here"></Form></div>
+                                <p class="w3-text-grey"><img src="./pictures/americano.jpeg" class="w3-round w3-image " alt="Table Setting" width="150" height="187.5"></p><br>                                <div class="overlay">
+                                  <div class="text">Order</div>
                                 </div>
                               </div>
 

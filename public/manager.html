@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="stylesheet" href="./dropdown.css">
+<link rel="stylesheet" href="./popupform.css">
 <!-- Bootstrap core CSS -->
-<link href="assets/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="assets/css/styles.css" rel="stylesheet">
@@ -22,9 +22,11 @@
 <![endif]-->
 
 <script src="./functions.js"></script>
+
 <style>
     body {
-        font-family: "Times New Roman", Georgia, Serif;
+        font-family: 'Open Sans', sans-serif;
+        background-color: orange;
     }
     
     h1,
@@ -33,32 +35,7 @@
     h4,
     h5,
     h6 {
-        font-family: "Playfair Display";
-        letter-spacing: 5px;
-    }
-    
-    .form-submit-button {
-        background: #0066A2;
-        color: white;
-        border-style: outset;
-        border-color: #0066A2;
-        height: 50px;
-        width: 100px;
-        font: bold15px arial, sans-serif;
-        text-shadow: none;
-    }
-    
-    body {
-        font-family: "Times New Roman", Georgia, Serif;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Playfair Display";
+        font-family: 'Open Sans', sans-serif;
         letter-spacing: 5px;
     }
     
@@ -73,13 +50,13 @@
     }
     
     input[type=submit]:hover {
-        background-color: black;
+        background-color: white;
         /* Green */
-        color: white;
+        color: black;
     }
     
     body {
-        font-family: "Times New Roman", Georgia, Serif;
+        font-family: 'Open Sans', sans-serif;
     }
     
     h1,
@@ -114,14 +91,126 @@
 <body>
 
     <!-- Navbar (sit on top) -->
+
     <div class="w3-top">
         <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="./index.html" class="" href="#home"><img src="assets/img/CoffeeTalkLogo.png" /></a>
-            </a>
+            <a  href="index.html#home"><img style="width: auto; height: 100px" src="assets/img/CoffeeTalkLogo.png" /></a>
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
+                <div class="navbar">
+                    <div class="dropdown">
+                      <button class="dropbtn">Employee Management 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
 
-                <a href="./menu.html" class="w3-bar-item w3-button">Menu</a>
+                        <Form action="/mgrnumofemployee" method="POST">
+                            <input type="submit" name='submit' value="Employee Information">
+                            <input type="hidden" name='mgrnumofemployee' value="SELECT * FROM employee">
+                        </Form>
+
+                        
+                        <Form action="/employeestart" method="POST">
+                            <input type="submit" name='submit' value="Employee Start Date">
+                            <input type="hidden" name='employeestart' value="
+                            SELECT Fname, Lname, StartDate FROM employee WHERE StartDate IS NOT NULL;">
+                        </Form>
+
+                        <p><div class="openBtn">
+                            <button class="openButton" onclick="regopenForm()">Register Employee</button>
+                          </div></p><br>
+                          
+                          <p><div class="openBtn">
+                            <button class="openButton" onclick="emgropenForm()">Employee Efficiency</button>
+                          </div></p><br>
+
+                      </div>
+                    </div> 
+                    <div class="dropdown">
+                        <button class="dropbtn">Transaction Reports
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+  
+                            <Form action="/Supplierpayment" method="POST">
+                                <input type="submit" value="Payment for Suppliers">
+                                <input type="hidden" name="Supplierpayment" value="SELECT Sup_name, COUNT(material.Sup_num) AS From_Supplier, M_price*M_quantity AS Material_Price FROM material, supplier WHERE material.Sup_num=supplier.Sup_num GROUP BY Sup_name;">
+                            </Form>
+
+                            <Form action="/lastcontactsupplier" method="POST">
+                                <input type="submit" value="Last Contact with Suppliers">
+                                <input type="hidden" name="lastcontactsupplier" value="
+                                SELECT Sup_name, (DATEDIFF(now(),Sup_date)) AS Date FROM `supplier` WHERE Sup_date IS NOT NULL">
+                            </Form>
+  
+                        </div>
+                      </div> 
+                    <div class="dropdown">
+                        <button class="dropbtn">Customer Management
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <Form action="/custpoints" method="POST">
+                                <input type="submit" value='Customer Points'>
+                            </Form>
+
+                            <Form action="/greaterthanavg" method="POST">
+                                <input type="submit" value="Customer(s) with greater than average points">
+                                <input type="hidden" name="greaterthanavg" value="SELECT Cust_id, Fname, Lname FROM customer WHERE Cust_id IN (SELECT Cust_id FROM reward WHERE points>(SELECT AVG(points) FROM reward))">
+                            </Form>
+
+                            <p><div class="openBtn">
+                                <button class="openButton" onclick="ageopenForm()">Email based on Age</button>
+                              </div></p><br>
+                              <p><div class="openBtn">
+                                <button class="openButton" onclick="returnopenForm()">Check when customer last visited</button>
+                              </div></p><br>
+                              
+                        </div>
+                    </div> 
+                    <div class="dropdown">
+                        <button class="dropbtn">Sales Report
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <p><div class="openBtn">
+                                <button class="openButton" onclick="salesopenForm()">Profits Recieved</button>
+                              </div></p>
+                            
+                        </div>
+                    </div>
+                      <div class="dropdown">
+                        <button class="dropbtn">Market Analysis
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <Form action="/numoforder" method="POST">
+                                <input type="submit" value='Total Orders (All Time)'>
+                                <input type="hidden" name="numoforder" value="SELECT * FROM `order`">
+                            </Form>
+
+                            <Form action="/numofordertoday" method="POST">
+                                <input type="submit" value='Total Orders (Today)'>
+                                   <input type="hidden" name="numofordertoday" value="SELECT M_name, COUNT(O_id) AS Number_Sold
+                                 FROM material, `order`
+                              WHERE M_id=O_id AND O_date=CAST(CURDATE() as DATE)
+                                 GROUP BY M_name">
+                            </Form>
+                            <Form action="/greaterthanavgorder" method="POST">
+                                <input type="submit" value='Greater than average products'>
+                                <input type="hidden" name="greaterthanavgorder" value="SELECT M_name FROM material WHERE M_id IN (SELECT O_id FROM `order` WHERE O_id>(SELECT AVG(O_id) FROM `order`));">
+                            </Form>
+
+                            <Form action="/mostsold" method="POST">
+                                <input type="submit" value='Most Sold product'>
+                                <input type="hidden" name="mostsold" value="SELECT M_name, Sup_name, COUNT(O_quantity) AS Amount FROM `order`, material, supplier WHERE O_id=M_id AND material.Sup_num=supplier.Sup_num GROUP BY M_name ORDER BY COUNT(O_quantity) DESC LIMIT 1">
+                            </Form>
+
+                          
+                        </div>
+                        
+                      </div> 
+                  </div>
 
             </div>
 
@@ -130,9 +219,23 @@
 
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-        <img class="w3-image">
-        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
-            <h1 class="w3-xxlarge">Coffee Talk</h1>
+
+        <img class="w3-image" src="./pictures/unnamed.jpg" alt="Hamburger Catering" width="1600" height="800">
+
+<script>
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+</script>
+        <div class="w3-display-middle w3-padding-large">
+            <h1 class="w3-xxlarge" style="background-color: white;">
+                <div class="container">
+                    <H1>Hello: knsunaha</H1>
+                    <h3>Here are: 2 Employees Working Today</h3> 
+                    <h3>Current Date and Time: <script>document.write(dateTime)</script></h3>
+                    
+                </div>
         </div>
     </header>
 
@@ -142,121 +245,118 @@
         <!-- About Section -->
         <div class="w3-row w3-padding-32" id="">
 
-            <h1 class="w3-center" id="">Manager Page</h1><br>
-            <div class="row">
-
-                <div class="column">
-                    <h2>Employee Management</h2>
-
-                    <Form action="/employee_efficiency" method="POST">
-                        <u><h4>Employee Efficiency</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
-                        <BR> Enter a End Date <input type='date' name='end_date' required>
-                        <BR>
-                        <input type="submit" value="Submit">
-                    </Form>
-
-                    <Form action="/add_employee" method="POST">
-                        <u><h4>Add Employee</h4></u> SSN <input type='number' maxlength="9" name="Ssn" required>
-                        <BR> First name <input type='text' name='Fname' required>
-                        <BR> Middle Initial <input type='text' name='Mini'>
-                        <BR> Last name <input type='text' name='Lname' required>
-                        <BR> Address <input type='text' name='Address' required>
-                        <BR> Gender <input type='text' maxlength="1" name='Gender' required>
-                        <BR> Birth Date <input type='date' name='Bdate'>
-                        <BR> Salary <input type='number' name='Salary'>
-                        <BR> Manager SSN <input type='number' maxlength="9" name="Superssn" required>
-                        <BR>
-                        <input type="submit" value="Submit">
-                    </Form>
-
-                    <Form action="/mgrnumofemployee" method="POST">
-                        <u><h4>Employee Information </h4></u>
-                        <input type="submit" name='submit'>
-                        <input type="hidden" name='mgrnumofemployee' value="SELECT * FROM employee">
-                    </Form>
-                </div>
-                <div class="column">
-                    <h2>Transaction <br>reports</h2>
-                    <Form action="/Supplierpayment" method="POST">
-                        <u><h4>Payment for Suppliers</h4></u>
-                        <input type="submit" value='Submit'>
-                        <input type="hidden" name="Supplierpayment" value="SELECT Sup_name, COUNT(material.Sup_num) AS From_Supplier, M_price*M_quantity AS Material_Price FROM material, supplier WHERE material.Sup_num=supplier.Sup_num GROUP BY Sup_name;">
-                    </Form>
-
-                </div>
-                <div class="column">
-                    <h2>Customer Loyalty</h2>
-                    <Form action="/custpoints" method="POST">
-                        <u><h4>Customer Points</h4></u>
-                        <input type="submit" value='Submit'>
-                    </Form>
-                    <Form action="/greaterthanavg" method="POST">
-                        <u><h4>Customer(s) with greater<br>than average points</h4></u>
-                        <input type="submit" value='Submit'>
-                        <input type="hidden" name="greaterthanavg" value="SELECT Cust_id, Fname, Lname FROM customer WHERE Cust_id IN (SELECT Cust_id FROM reward WHERE points>(SELECT AVG(points) FROM reward))">
-                    </Form>
-
-                    </form>
-
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="column">
-                    <h2>Market Analysis</h2>
-                    <Form action="/numoforder" method="POST">
-                        <u><h4>Total Orders (All Time)</h4></u>
-                        <input type="submit" value='Submit'>
-                        <input type="hidden" name="numoforder" value="SELECT * FROM `order`">
-                    </Form>
-
-                    <Form action="/numofordertoday" method="POST">
-                        <u><h4>Total Orders (Today)</h4></u>
-                        <input type="submit" value='Submit'>
-                        <input type="hidden" name="numofordertoday" value="SELECT M_name, COUNT(O_id) AS Number_Sold
-            FROM material, `order`
-            WHERE M_id=O_id AND O_date=CAST(CURDATE() as DATE)
-            GROUP BY M_name">
-                    </Form>
-
-                    <Form action="/greaterthanavgorder" method="POST">
-                        <u><h4>Greater than average products</h4></u>
-                        <input type="submit" value='Submit'>
-                        <input type="hidden" name="greaterthanavgorder" value="SELECT M_name FROM material WHERE M_id IN (SELECT O_id FROM `order` WHERE O_id>(SELECT AVG(O_id) FROM `order`));">
-                    </Form>
-
-                </div>
-                <div class="column">
 
 
-
-                </div>
-                <div class="column">
-                    <h2>Sales Report</h2>
-                    <Form action="/profits" method="POST">
-                        <u><h4>Profits Recieved</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
-                        <BR> Enter a End Date <input type='date' name='end_date' required>
-                        <BR>
-                        <input type="submit" value="Submit">
-                    </Form>
-
-
-                    </form>
-
-                </div>
-            </div>
-
-        </div>
 
         <hr>
+        <div class="loginPopup">
+            <div class="formPopup" id="popupForm">
+                <Form action="/add_employee" method="POST">
+                    <u><h4>Add Employee</h4></u> SSN <input type='number' maxlength="9" name="Ssn" required>
+                    <BR> First name <input type='text' name='Fname' required>
+                    <BR> Middle Initial <input type='text' name='Mini'>
+                    <BR> Last name <input type='text' name='Lname' required>
+                    <BR> Address <input type='text' name='Address' required>
+                    <BR> Gender <input type='text' maxlength="1" name='Gender' required>
+                    <BR> Birth Date <input type='date' name='Bdate'>
+                    <BR> Salary <input type='number' name='Salary'>
+                    <BR> Manager SSN <input type='number' maxlength="9" name="Superssn" required>
+                    <BR>
+                    <input type="submit" value="Submit">
+                    <button type="button" class="cancelbtn" onclick=regcloseForm()>Close</button>
 
+                </Form>
+                <h8>Default Password Will Be: abc123</h8>
+            </div>
+        </div>
+        <div class="loginPopup">
+            <div class="formPopup" id="employeemgrpopupForm">
+                <Form action="/employee_efficiency" method="POST">
+                    <u><h4>Employee Efficiency</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
+                    <BR> Enter a End Date <input type='date' name='end_date' required>
+                    <BR>
+                    <input type="submit" value="Submit">
 
+                    <button type="button" class="cancelbtn" onclick=emgrcloseForm()>Close</button>
+
+                </Form>
+            </div>
+        </div>
+        <div class="loginPopup">
+            <div class="formPopup" id="salespopupForm">
+                <Form action="/profits" method="POST">
+                    <u><h4>Profits Recieved</h4></u> Enter a Start Date <input type='date' name='start_date' max="date" required>
+                    <BR> Enter a End Date <input type='date' name='end_date' required>
+                    <BR>
+                    <input type="submit" value="Submit">
+                    <button type="button" class="cancelbtn" onclick=salescloseForm()>Close</button>
+                </Form>
+            </div>
+        </div>
+        <div class="loginPopup">
+            <div class="formPopup" id="agepopupForm">
+                <Form action="/customerage" method="POST">
+                    <u><h4>Customer email based on age</h4></u> Enter a Minimum Age <input type='number' name='minage' required>
+                    <BR> Enter a Maximum Age <input type='numeber' name='maxage' required>
+                    <BR>
+                    <input type="submit" value="Submit">
+
+                    <button type="button" class="cancelbtn" onclick=agecloseForm()>Close</button>
+
+                </Form>
+            </div>
+        </div>
+        <div class="loginPopup">
+            <div class="formPopup" id="returnpopupForm">
+                <Form action="/customerreturn" method="POST">
+                    <u><h4>Check customers last visis</h4></u> Enter a Number <input type='number' name='num' required>
+                    <BR>
+                    <input type="submit" value="Submit">
+
+                    <button type="button" class="cancelbtn" onclick=returncloseForm()>Close</button>
+
+                </Form>
+            </div>
+        </div>
+        
+          <script>
+            function regopenForm() {
+              document.getElementById("popupForm").style.display = "block";
+            }
+            function regcloseForm() {
+              document.getElementById("popupForm").style.display = "none";
+            }
+            function emgropenForm() {
+              document.getElementById("employeemgrpopupForm").style.display = "block";
+            }
+            function emgrcloseForm() {
+              document.getElementById("employeemgrpopupForm").style.display = "none";
+            }
+            function salesopenForm() {
+              document.getElementById("salespopupForm").style.display = "block";
+            }
+            function salescloseForm() {
+              document.getElementById("salespopupForm").style.display = "none";
+            }
+            function ageopenForm() {
+              document.getElementById("agepopupForm").style.display = "block";
+            }
+            function agecloseForm() {
+              document.getElementById("agepopupForm").style.display = "none";
+            }
+            function returnopenForm() {
+              document.getElementById("returnpopupForm").style.display = "block";
+            }
+            function returncloseForm() {
+              document.getElementById("returnpopupForm").style.display = "none";
+            }
+          </script>
 
         <!-- End page content -->
     </div>
 
     <footer class="w3-center w3-light-grey w3-padding-32">
+
 
     </footer>
 </body>
